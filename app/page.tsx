@@ -1,3 +1,5 @@
+import { AuditForm } from "@/components/audit-form";
+
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
@@ -15,23 +17,9 @@ export default function HomePage() {
             Get an instant audit of your AI stack, uncover wasted spend,
             and discover cheaper alternatives for your team.
           </p>
-
-          <div className="mt-10 flex gap-4">
-            <button className="rounded-xl bg-white px-6 py-3 font-medium text-black transition hover:bg-zinc-200">
-              Start Free Audit
-            </button>
-
-            <button className="rounded-xl border border-zinc-700 px-6 py-3 font-medium text-white transition hover:bg-zinc-900">
-              View Example Report
-            </button>
-          </div>
-
-          <div className="mt-12 flex gap-8 text-sm text-zinc-500">
-            <div>✓ No signup required</div>
-            <div>✓ Instant recommendations</div>
-            <div>✓ Shareable reports</div>
-          </div>
         </div>
+
+        <AuditForm />
       </section>
     </main>
   );
