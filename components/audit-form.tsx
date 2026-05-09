@@ -1,5 +1,5 @@
 "use client";
-
+import { saveAudit } from "@/lib/save-audit";
 import { useEffect, useState } from "react";
 import { pricingData } from "@/lib/pricing";
 import { AuditFormData, ToolEntry, ToolName } from "@/types/audit";
@@ -61,11 +61,21 @@ export function AuditForm() {
     });
   };
 
-  const runAudit = () => {
-    const audit = generateAudit(formData.tools);
+  const runAudit = async () => {
+  const audit = generateAudit(formData.tools);
 
-    setResult(audit);
-  };
+  setResult(audit);
+
+  console.log("Running audit...");
+
+  const reportId = await saveAudit(formData, audit);
+
+  console.log("REPORT ID:", reportId);
+
+  if (reportId) {
+    window.location.href = `/report/${reportId}`;
+  }
+};
 
   return (
     <div className="mt-16 rounded-2xl border border-zinc-800 bg-zinc-900 p-8">
