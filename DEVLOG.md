@@ -49,3 +49,19 @@
 - Save audit reports to Supabase
 - Create shareable public report URLs
 - Improve recommendation quality
+
+## Day 3 — 2026-05-09
+
+**Hours worked:** 5
+
+**What I did:**  
+Built the shareable audit report system using Supabase. Added backend persistence for audit results, dynamic report URLs, and report retrieval by UUID. Fixed database schema issues, Next.js dynamic routing problems, and report rendering bugs.
+
+**What I learned:**  
+Learned how dynamic routes work in Next.js App Router, how Supabase permissions and table schemas affect inserts, and how to debug API/database integration issues using browser console logs.
+
+**Blockers / what I'm stuck on:**  
+Had issues with Supabase insert permissions and report persistence after refresh. Also faced Next.js dynamic route async params errors.
+
+**Plan for tomorrow:**  
+Add AI-generated personalized summaries, lead capture forms, and email storage flow.
