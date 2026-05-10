@@ -1,9 +1,12 @@
 import { supabase } from "./supabase";
 import { v4 as uuidv4 } from "uuid";
+import { generateAISummary } from "./ai-summary";
 
 export async function saveAudit(data: any, result: any) {
   try {
     const reportId = uuidv4();
+
+    const summary = await generateAISummary(result);
 
     const { error } = await supabase.from("audits").insert([
       {
@@ -14,6 +17,7 @@ export async function saveAudit(data: any, result: any) {
         monthly_savings: result.totalMonthlySavings,
         annual_savings: result.totalAnnualSavings,
         recommendations: result.recommendations,
+        summary: summary,
       },
     ]);
 

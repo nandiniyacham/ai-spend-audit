@@ -1,5 +1,5 @@
 import { supabase } from "@/lib/supabase";
-
+import { LeadForm } from "@/components/lead-form";
 type Props = {
   params: Promise<{
     id: string;
@@ -47,13 +47,22 @@ export default async function ReportPage({ params }: Props) {
             </h2>
           </div>
         </div>
+<div className="mt-10 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+  <h2 className="text-2xl font-bold">
+    AI-Generated Summary
+  </h2>
 
+  <p className="mt-4 text-lg text-zinc-300">
+    {data.summary}
+  </p>
+</div>
         <div className="mt-10 space-y-6">
           {data.recommendations.map((item: any, index: number) => (
             <div
               key={index}
               className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6"
             >
+              <LeadForm reportId={id} />
               <div className="flex items-center justify-between">
                 <h3 className="text-2xl font-bold">
                   {item.tool}
