@@ -65,3 +65,19 @@ Had issues with Supabase insert permissions and report persistence after refresh
 
 **Plan for tomorrow:**  
 Add AI-generated personalized summaries, lead capture forms, and email storage flow.
+
+## Day 4 — 2026-05-10
+
+**Hours worked:** 5
+
+**What I did:**  
+Implemented AI-generated audit summaries and a lead capture system. Added a new leads table in Supabase, created a reusable lead form component, and connected the report flow to persistent lead storage. Also improved report presentation with personalized summaries and success states.
+
+**What I learned:**  
+Learned how client/server boundaries work in Next.js, especially around environment variables and secret API keys. Improved understanding of Supabase insert flows and reusable component patterns.
+
+**Blockers / what I'm stuck on:**  
+Initially tried using OpenAI directly in client-side components, which caused environment variable exposure issues. Replaced with a temporary server-safe summary approach.
+
+**Plan for tomorrow:**  
+Improve UI polish, add charts/analytics visualizations, create better onboarding UX, and prepare deployment/documentation.
