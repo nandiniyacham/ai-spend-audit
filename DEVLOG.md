@@ -81,3 +81,19 @@ Initially tried using OpenAI directly in client-side components, which caused en
 
 **Plan for tomorrow:**  
 Improve UI polish, add charts/analytics visualizations, create better onboarding UX, and prepare deployment/documentation.
+
+## Day 5 — 2026-05-11
+
+**Hours worked:** 4
+
+**What I did:**  
+Improved the overall dashboard and report experience by adding analytics visualizations using Recharts. Enhanced the SaaS-style layout of the report page, improved component ordering, refined UI spacing, and polished the lead capture flow for a more production-ready experience.
+
+**What I learned:**  
+Learned how to integrate Recharts into a Next.js application and structure reusable dashboard components. Improved understanding of UI hierarchy and user flow optimization in SaaS products.
+
+**Blockers / what I'm stuck on:**  
+Initially placed components in incorrect layout hierarchy, causing lead forms to render inside recommendation cards. Fixed by restructuring component placement.
+
+**Plan for tomorrow:**  
+Add copy/share functionality, loading states, final UI polish, deployment setup, and prepare project demo documentation.

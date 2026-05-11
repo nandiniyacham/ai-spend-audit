@@ -58,3 +58,11 @@ A web application that audits startup AI tooling spend and recommends cost-savin
 - Connected lead storage to Supabase
 - Improved report UI
 - Added success states and persistence
+
+### Day 5 — Dashboard & UX Improvements
+- Added savings analytics chart using Recharts
+- Improved report dashboard layout
+- Added better SaaS-style UI structure
+- Improved report readability
+- Enhanced lead capture placement
+- Improved overall demo experience
