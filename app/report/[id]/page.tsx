@@ -1,5 +1,6 @@
 import { supabase } from "@/lib/supabase";
 import { LeadForm } from "@/components/lead-form";
+import { SavingsChart } from "@/components/savings-chart";
 type Props = {
   params: Promise<{
     id: string;
@@ -56,13 +57,17 @@ export default async function ReportPage({ params }: Props) {
     {data.summary}
   </p>
 </div>
+<SavingsChart
+  monthly={data.monthly_savings}
+  annual={data.annual_savings}
+/>
         <div className="mt-10 space-y-6">
           {data.recommendations.map((item: any, index: number) => (
             <div
               key={index}
               className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6"
             >
-              <LeadForm reportId={id} />
+              
               <div className="flex items-center justify-between">
                 <h3 className="text-2xl font-bold">
                   {item.tool}
@@ -86,8 +91,11 @@ export default async function ReportPage({ params }: Props) {
               <p className="mt-2 text-zinc-400">
                 {item.reason}
               </p>
+            
             </div>
+            
           ))}
+            <LeadForm reportId={id} />
         </div>
       </div>
     </div>
