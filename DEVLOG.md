@@ -97,3 +97,19 @@ Initially placed components in incorrect layout hierarchy, causing lead forms to
 
 **Plan for tomorrow:**  
 Add copy/share functionality, loading states, final UI polish, deployment setup, and prepare project demo documentation.
+
+## Day 6 — 2026-05-12
+
+**Hours worked:** 3
+
+**What I did:**  
+Added report sharing functionality with copy-link support, improved report loading behavior, refined dashboard UX, and improved overall SaaS-style experience.
+
+**What I learned:**  
+Learned how to handle client-side rendering and browser clipboard APIs inside Next.js applications.
+
+**Blockers / what I'm stuck on:**  
+Initially mixed server and client component logic, which caused rendering issues. Fixed by restructuring the report page into a client-side flow.
+
+**Plan for tomorrow:**  
+Prepare deployment, final testing, and demo recording.

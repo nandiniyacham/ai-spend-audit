@@ -66,3 +66,11 @@ A web application that audits startup AI tooling spend and recommends cost-savin
 - Improved report readability
 - Enhanced lead capture placement
 - Improved overall demo experience
+
+### Day 6 — UX Polish + Sharing
+- Added report sharing functionality
+- Added copy report link feature
+- Improved report page UX
+- Improved loading handling
+- Refined dashboard experience
+- Fixed client-side report rendering flow
