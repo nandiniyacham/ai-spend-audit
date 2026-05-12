@@ -1,25 +1,53 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { LeadForm } from "@/components/lead-form";
 import { SavingsChart } from "@/components/savings-chart";
+
 type Props = {
   params: Promise<{
     id: string;
   }>;
 };
 
-export default async function ReportPage({ params }: Props) {
-  const { id } = await params;
+export default function ReportPage({ params }: Props) {
+  const [data, setData] = useState<any>(null);
+  const [id, setId] = useState("");
+  const [copied, setCopied] = useState(false);
 
-  const { data } = await supabase
-    .from("audits")
-    .select("*")
-    .eq("report_id", id)
-    .single();
+  useEffect(() => {
+    async function loadReport() {
+      const resolvedParams = await params;
+
+      setId(resolvedParams.id);
+
+      const { data } = await supabase
+        .from("audits")
+        .select("*")
+        .eq("report_id", resolvedParams.id)
+        .single();
+
+      setData(data);
+    }
+
+    loadReport();
+  }, [params]);
+
+  const copyLink = async () => {
+    await navigator.clipboard.writeText(window.location.href);
+
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  };
 
   if (!data) {
     return (
-      <div className="min-h-screen bg-black p-10 text-white">
-        Report not found
+      <div className="flex min-h-screen items-center justify-center bg-black text-white">
+        Loading report...
       </div>
     );
   }
@@ -31,9 +59,20 @@ export default async function ReportPage({ params }: Props) {
           Potential Savings Found
         </h1>
 
+        <div className="mt-4">
+          <button
+            onClick={copyLink}
+            className="rounded-xl border border-zinc-700 px-4 py-2 text-sm hover:bg-zinc-800"
+          >
+            {copied ? "Link Copied!" : "Copy Report Link"}
+          </button>
+        </div>
+
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-green-900 bg-green-950 p-6">
-            <p className="text-zinc-400">Monthly Savings</p>
+            <p className="text-zinc-400">
+              Monthly Savings
+            </p>
 
             <h2 className="mt-2 text-5xl font-bold text-green-400">
               ${data.monthly_savings}
@@ -41,62 +80,67 @@ export default async function ReportPage({ params }: Props) {
           </div>
 
           <div className="rounded-2xl border border-green-900 bg-green-950 p-6">
-            <p className="text-zinc-400">Annual Savings</p>
+            <p className="text-zinc-400">
+              Annual Savings
+            </p>
 
             <h2 className="mt-2 text-5xl font-bold text-green-400">
               ${data.annual_savings}
             </h2>
           </div>
         </div>
-<div className="mt-10 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-  <h2 className="text-2xl font-bold">
-    AI-Generated Summary
-  </h2>
 
-  <p className="mt-4 text-lg text-zinc-300">
-    {data.summary}
-  </p>
-</div>
-<SavingsChart
-  monthly={data.monthly_savings}
-  annual={data.annual_savings}
-/>
-        <div className="mt-10 space-y-6">
-          {data.recommendations.map((item: any, index: number) => (
-            <div
-              key={index}
-              className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6"
-            >
-              
-              <div className="flex items-center justify-between">
-                <h3 className="text-2xl font-bold">
-                  {item.tool}
-                </h3>
+        <div className="mt-10 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+          <h2 className="text-2xl font-bold">
+            AI-Generated Summary
+          </h2>
 
-                <div className="text-right">
-                  <p className="text-sm text-zinc-400">
-                    Monthly Savings
-                  </p>
-
-                  <p className="text-3xl font-bold text-green-400">
-                    ${item.monthlySavings}
-                  </p>
-                </div>
-              </div>
-
-              <p className="mt-4 text-lg">
-                {item.recommendation}
-              </p>
-
-              <p className="mt-2 text-zinc-400">
-                {item.reason}
-              </p>
-            
-            </div>
-            
-          ))}
-            <LeadForm reportId={id} />
+          <p className="mt-4 text-lg text-zinc-300">
+            {data.summary}
+          </p>
         </div>
+
+        <SavingsChart
+          monthly={data.monthly_savings}
+          annual={data.annual_savings}
+        />
+
+        <div className="mt-10 space-y-6">
+          {data.recommendations.map(
+            (item: any, index: number) => (
+              <div
+                key={index}
+                className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6"
+              >
+                <div className="flex items-center justify-between">
+                  <h3 className="text-2xl font-bold">
+                    {item.tool}
+                  </h3>
+
+                  <div className="text-right">
+                    <p className="text-sm text-zinc-400">
+                      Monthly Savings
+                    </p>
+
+                    <p className="text-3xl font-bold text-green-400">
+                      ${item.monthlySavings}
+                    </p>
+                  </div>
+                </div>
+
+                <p className="mt-4 text-lg">
+                  {item.recommendation}
+                </p>
+
+                <p className="mt-2 text-zinc-400">
+                  {item.reason}
+                </p>
+              </div>
+            )
+          )}
+        </div>
+
+        <LeadForm reportId={id} />
       </div>
     </div>
   );
