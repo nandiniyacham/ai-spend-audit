@@ -1,22 +1,16 @@
-# Testing Notes
+# Automated Tests
 
-Tested flows:
-- Audit form submission
-- Savings calculations
-- Dynamic tool additions
-- Report generation
-- Persistent report loading
-- Lead capture submissions
+## Test File
+- __tests__/audit-engine.test.ts
 
-Manual testing completed for:
-- Local storage persistence
-- Supabase inserts
-- Dynamic routes
-- Responsive layouts
-- Chart rendering
-- Form interactions
+## Covered Cases
+1. Monthly savings calculations
+2. Annual savings calculations
+3. No-savings scenarios
+4. Plan recommendation logic
+5. Enterprise usage handling
 
-Known limitations:
-- No automated tests yet
-- OpenAI integration currently simplified
-- No authentication system implemented
+## How to Run
+
+```bash
+npm test
