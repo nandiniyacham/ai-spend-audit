@@ -84,3 +84,20 @@ A web application that audits startup AI tooling spend and recommends cost-savin
 - Validated report generation flow
 - Verified sharing and persistence features
 - Finalized project for demo and submission
+
+## Live Demo
+
+Deployed URL:https://ai-spend-audit-o6v9pw130-nandiniyachams-projects.vercel.app
+
+## Screenshots
+### Landing Page
+
+![Landing Page](./public/landingPage.png)
+
+### Full Report Dashboard
+
+![Full Report Dashboard](./public/Full_Report_dashboard.png)
+
+### Savings Overview
+
+![Savings Overview](./public/Savings_overview.png)
