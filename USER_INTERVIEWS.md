@@ -1,23 +1,15 @@
-# User Interview Notes
+# User Research Notes
 
-Target users:
-- Startup founders
-- Developers
-- Product managers
-- Engineering teams
-- AI-first SaaS companies
+Due to timeline constraints, I was unable to conduct formal structured user interviews during the project week.
 
-Common pain points:
-- Paying for overlapping AI tools
-- Unclear seat utilization
-- High monthly AI subscription costs
-- Difficulty comparing tool pricing
-- Lack of visibility into AI spend
+However, I discussed the concept informally with classmates and student developers who regularly use tools such as ChatGPT, GitHub Copilot, Gemini, and Cursor for coding, assignments, and side projects.
 
-Expected value:
-Users want fast recommendations for reducing unnecessary AI expenses and improving tooling efficiency.
+Common feedback themes included:
+- users often subscribe to overlapping AI tools without tracking usage carefully
+- smaller teams and students rarely compare plans before purchasing subscriptions
+- users prefer quick actionable recommendations instead of long reports
+- many users continue paying for subscriptions they only use occasionally
 
-Insights gathered:
-- Teams often subscribe to redundant AI tools
-- Small teams frequently overpay for enterprise plans
-- Users prefer quick actionable recommendations
+These discussions reinforced the value of creating a lightweight AI spend audit tool focused on simple savings recommendations and shareable reports.
+
+If continuing development, my next step would be conducting structured interviews with startup founders, engineering managers, and AI-heavy developer teams to validate recommendation accuracy and pricing assumptions further.
